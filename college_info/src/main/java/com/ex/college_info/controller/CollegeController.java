@@ -1,10 +1,7 @@
 package com.ex.college_info.controller;
 
-
-import com.ex.college_info.dto.CollegeDTO;
 import com.ex.college_info.model.CollegeModel;
 import com.ex.college_info.service.CollegeService;
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +19,8 @@ public class CollegeController {
     }
 
     @PostMapping
-    public ResponseEntity<CollegeModel> createCollege(@Valid @RequestBody CollegeDTO collegeDTO) {
-        return ResponseEntity.ok(collegeService.addCollege(collegeDTO));
+    public ResponseEntity<CollegeModel> createCollege(@RequestBody CollegeModel collegeModel) {
+        return ResponseEntity.ok(collegeService.addCollege(collegeModel));
     }
 
     @GetMapping

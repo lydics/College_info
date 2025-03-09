@@ -3,7 +3,8 @@ package com.ex.college_info.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 @Entity
 @Table(name = "college")
@@ -36,21 +37,14 @@ public class CollegeModel {
     private Boolean isActive = true;
 
     @Column(updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private Timestamp createdAt = Timestamp.from(Instant.now());
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public void setUpdatedAt(LocalDateTime updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	private LocalDateTime updatedAt = LocalDateTime.now();
+    @Column
+    private Timestamp updatedAt = Timestamp.from(Instant.now());
 
     @PreUpdate
     public void setUpdatedAt() {
-        this.updatedAt = LocalDateTime.now();
+        this.updatedAt = Timestamp.from(Instant.now());
     }
 
     // Constructor without collegeId (For Creating New Entries)
@@ -68,7 +62,10 @@ public class CollegeModel {
         this.website = website;
         this.establishedYear = establishedYear;
         this.isActive = isActive;
+        this.createdAt = Timestamp.from(Instant.now());
+        this.updatedAt = Timestamp.from(Instant.now());
     }
+
 
 
 
@@ -122,11 +119,21 @@ public class CollegeModel {
         return isActive;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
         return updatedAt;
     }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+
 }
