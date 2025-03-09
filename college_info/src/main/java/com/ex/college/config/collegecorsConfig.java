@@ -1,4 +1,4 @@
-package com.ex.college_info.config;
+package com.ex.college.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CorsConfig {
+public class collegecorsConfig {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {

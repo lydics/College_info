@@ -1,13 +1,13 @@
-package com.ex.college_info;
+package com.ex.college;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CollegeInfoApplication {
+public class collegeinfoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CollegeInfoApplication.class, args);
+		SpringApplication.run(collegeinfoApplication.class, args);
 	}
 
 }

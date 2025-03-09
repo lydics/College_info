@@ -1,7 +1,8 @@
-package com.ex.college_info.service;
+package com.ex.college.service;
 
-import com.ex.college_info.model.CollegeModel;
-import com.ex.college_info.repo.CollegeRepository;
+import com.ex.college.model.collegeModel;
+import com.ex.college.repo.collegeRepository;
+
 import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -11,15 +12,15 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 @Service
-public class CollegeService {
+public class collegeService {
 
-    private final CollegeRepository collegeRepository;
+    private final collegeRepository collegeRepository;
 
-    public CollegeService(CollegeRepository collegeRepository) {
+    public collegeService(collegeRepository collegeRepository) {
         this.collegeRepository = collegeRepository;
     }
 
-    public CollegeModel addCollege(CollegeModel college) {
+    public collegeModel addCollege(collegeModel college) {
         validateCollegeDetails(college); // Validate input data
 
         if (collegeRepository.existsByCode(college.getCode())) {
@@ -33,11 +34,11 @@ public class CollegeService {
         return collegeRepository.save(college);
     }
 
-    public List<CollegeModel> getAllColleges() {
+    public List<collegeModel> getAllColleges() {
         return collegeRepository.findAll();
     }
 
-    public Optional<CollegeModel> getCollegeById(Long id) {
+    public Optional<collegeModel> getCollegeById(Long id) {
         return collegeRepository.findById(id);
     }
 
@@ -45,7 +46,7 @@ public class CollegeService {
         collegeRepository.deleteById(id);
     }
 
-    private void validateCollegeDetails(CollegeModel college) {
+    private void validateCollegeDetails(collegeModel college) {
         if (college.getCollegeName() == null || college.getCollegeName().isBlank()) {
             throw new IllegalArgumentException("College name is required");
         }

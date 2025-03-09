@@ -1,7 +1,8 @@
-package com.ex.college_info.controller;
+package com.ex.college.controller;
 
-import com.ex.college_info.model.CollegeModel;
-import com.ex.college_info.service.CollegeService;
+import com.ex.college.model.collegeModel;
+import com.ex.college.service.collegeService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,26 +11,26 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/colleges")
-public class CollegeController {
+public class collegeController {
 
-    private final CollegeService collegeService;
+    private final collegeService collegeService;
 
-    public CollegeController(CollegeService collegeService) {
+    public collegeController(collegeService collegeService) {
         this.collegeService = collegeService;
     }
 
     @PostMapping
-    public ResponseEntity<CollegeModel> createCollege(@RequestBody CollegeModel collegeModel) {
+    public ResponseEntity<collegeModel> createCollege(@RequestBody collegeModel collegeModel) {
         return ResponseEntity.ok(collegeService.addCollege(collegeModel));
     }
 
     @GetMapping
-    public ResponseEntity<List<CollegeModel>> getAllColleges() {
+    public ResponseEntity<List<collegeModel>> getAllColleges() {
         return ResponseEntity.ok(collegeService.getAllColleges());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<CollegeModel>> getCollegeById(@PathVariable Long id) {
+    public ResponseEntity<Optional<collegeModel>> getCollegeById(@PathVariable Long id) {
         return ResponseEntity.ok(collegeService.getCollegeById(id));
     }
 

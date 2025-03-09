@@ -1,4 +1,4 @@
-package com.ex.college_info.model;
+package com.ex.college.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +12,7 @@ import java.time.Instant;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CollegeModel {
+public class collegeModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +48,7 @@ public class CollegeModel {
     }
 
     // Constructor without collegeId (For Creating New Entries)
-    public CollegeModel(String collegeName, String code, String address, String city, String state, 
+    public collegeModel(String collegeName, String code, String address, String city, String state, 
                         String country, String phoneNumber, String email, String website, 
                         Integer establishedYear, Boolean isActive) {
         this.collegeName = collegeName;
